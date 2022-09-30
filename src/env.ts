@@ -22,5 +22,10 @@ export const env = envsafe({
     desc: 'The custom archive file format e.g dump, bak.',
     default: 'dump',
     allowEmpty: true,
+  }),
+  AWS_BACKUP_FOLDER: str({
+    desc: 'Specify back up folder. e.g My-App-01-DB-Backups',
+    default: '',
+    allowEmpty: true,
   })
 })
