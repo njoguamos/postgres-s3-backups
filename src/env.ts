@@ -18,4 +18,9 @@ export const env = envsafe({
     default: '',
     allowEmpty: true,
   }),
+  BACKUP_FILE_FORMAT: str({
+    desc: 'The custom archive file format e.g dump, bak.',
+    default: 'dump',
+    allowEmpty: true,
+  })
 })
