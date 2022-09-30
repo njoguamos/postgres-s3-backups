@@ -58,9 +58,12 @@ export const backup = async () => {
   const timestamp = date.replace(/[:.]+/g, '-')
   const filename = `backup-${timestamp}.${env.BACKUP_FILE_FORMAT}`
   const filepath = `/tmp/${filename}`
+  const aws_path = env.AWS_BACKUP_FOLDER
+            ? `${env.AWS_BACKUP_FOLDER}/${filename}`
+            : filename
 
   await dumpToFile(filepath)
-  await uploadToS3({name: filename, path: filepath})
+  await uploadToS3({name: aws_path, path: filepath})
 
   console.log("DB backup complete...")
 }
